@@ -98,7 +98,7 @@ extension GroupOperation: OperationQueueDelegate {
     }
     
     final func operationQueue(_ operationQueue: OperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [NSError]) {
-        aggregatedErrors.extend(errors)
+        aggregatedErrors += errors
         
         if operation === finishingOperation {
             internalQueue.isSuspended = true

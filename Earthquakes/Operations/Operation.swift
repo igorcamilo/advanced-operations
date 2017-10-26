@@ -182,7 +182,7 @@ class Operation: Foundation.Operation {
         state = .evaluatingConditions
         
         OperationConditionEvaluator.evaluate(conditions, operation: self) { failures in
-            self._internalErrors.extend(failures)
+            self._internalErrors += failures
             self.state = .ready
         }
     }
@@ -205,7 +205,7 @@ class Operation: Foundation.Operation {
         observers.append(observer)
     }
     
-    override func addDependency(_ operation: Operation) {
+    override func addDependency(_ operation: Foundation.Operation) {
         assert(state < .executing, "Dependencies cannot be modified after execution has begun.")
 
         super.addDependency(operation)

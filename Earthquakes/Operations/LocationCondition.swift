@@ -34,7 +34,7 @@ struct LocationCondition: OperationCondition {
         return LocationPermissionOperation(usage: usage)
     }
     
-    func evaluateForOperation(_ operation: Operation, completion: (OperationConditionResult) -> Void) {
+    func evaluateForOperation(_ operation: Operation, completion: @escaping (OperationConditionResult) -> Void) {
         let enabled = CLLocationManager.locationServicesEnabled()
         let actual = CLLocationManager.authorizationStatus()
         

@@ -25,7 +25,7 @@ struct CalendarCondition: OperationCondition {
         return CalendarPermissionOperation(entityType: entityType)
     }
     
-    func evaluateForOperation(_ operation: Operation, completion: (OperationConditionResult) -> Void) {
+    func evaluateForOperation(_ operation: Operation, completion: @escaping (OperationConditionResult) -> Void) {
         switch EKEventStore.authorizationStatus(for: entityType) {
             case .authorized:
                 completion(.satisfied)

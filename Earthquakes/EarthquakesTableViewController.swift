@@ -13,7 +13,7 @@ import CloudKit
 class EarthquakesTableViewController: UITableViewController {
     // MARK: Properties
 
-    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
+    var fetchedResultsController: NSFetchedResultsController<Earthquake>?
     
     let operationQueue = OperationQueue()
     
@@ -25,7 +25,7 @@ class EarthquakesTableViewController: UITableViewController {
         let operation = LoadModelOperation { context in
             // Now that we have a context, build our `FetchedResultsController`.
             DispatchQueue.main.async {
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: Earthquake.entityName)
+                let request = NSFetchRequest<Earthquake>(entityName: Earthquake.entityName)
 
                 request.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
                 
@@ -55,7 +55,7 @@ class EarthquakesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "earthquakeCell", for: indexPath) as! EarthquakeTableViewCell
         
-        if let earthquake = fetchedResultsController?.object(at: indexPath) as? Earthquake {
+        if let earthquake = fetchedResultsController?.object(at: indexPath) {
             cell.configure(earthquake)
         }
 
@@ -112,7 +112,7 @@ class EarthquakesTableViewController: UITableViewController {
         detailVC.queue = operationQueue
 
         if let indexPath = tableView.indexPathForSelectedRow {
-            detailVC.earthquake = fetchedResultsController?.object(at: indexPath) as? Earthquake
+            detailVC.earthquake = fetchedResultsController?.object(at: indexPath)
         }
     }
     

@@ -342,7 +342,7 @@
 				TargetAttributes = {
 					551B9BDC1AEB1C9700302388 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0910;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -557,7 +557,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Earthquakes;
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -574,7 +575,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Earthquakes;
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

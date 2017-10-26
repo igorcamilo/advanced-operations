@@ -137,7 +137,7 @@ class EarthquakesTableViewController: UITableViewController {
                 We don't have a context to operate on, so wait a bit and just make
                 the refresh control end.
             */
-            let when = DispatchTime.now() + Double(Int64(0.3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+            let when = DispatchTime.now() + 0.3
             DispatchQueue.main.asyncAfter(deadline: when) {
                 self.refreshControl?.endRefreshing()
             }
